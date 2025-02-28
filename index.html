@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MorphSVGPlugin.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const colors = ["text-blue-500", "text-red-500", "text-green-500", "text-yellow-500", "text-purple-500"];
+            const bgColors = ["bg-blue-500", "bg-red-500", "bg-green-500", "bg-yellow-500", "bg-purple-500"];
+            const textHoverColors = ["hover:text-blue-500", "hover:text-red-500", "hover:text-green-500", "hover:text-yellow-500", "hover:text-purple-500"];
+            const borderHoverColors = ["hover:border-blue-500", "hover:border-red-500", "hover:border-green-500", "hover:border-yellow-500", "hover:border-purple-500"];
+            const svgColors = ["fill-blue-500", "fill-red-500", "fill-green-500", "fill-yellow-500", "fill-purple-500"];
+        
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedTextColor = colors[randomIndex];
+            const selectedBgColor = bgColors[randomIndex];
+            const selectedTextHover = textHoverColors[randomIndex];
+            const selectedBorderHover = borderHoverColors[randomIndex];
+            const selectedSvgColor = svgColors[randomIndex];
+        
+            document.getElementById("logo-highlight").classList.add(selectedTextColor);
+            document.querySelectorAll(".dynamic-color").forEach(el => {
+                el.classList.add(selectedTextColor);
+            });
+            document.querySelectorAll(".dynamic-bg, .preloader").forEach(el => {
+                el.classList.add(selectedBgColor);
+            });
+        
+            const emailInput = document.getElementById("email-input");
+            emailInput.classList.add(selectedTextColor);
+        
+            const subscribeButton = document.getElementById("subscribe-button");
+            subscribeButton.classList.add(selectedBgColor);
+        
+            document.getElementById("dynamic-bg").classList.add(selectedBgColor);
+        
+            const hoverButtons = document.querySelectorAll(".dynamic-hover");
+            hoverButtons.forEach(button => {
+                button.classList.add(selectedTextHover, selectedBorderHover);
+            });
+        
+            document.querySelectorAll("#animated-shape").forEach(shape => {
+                shape.classList.add(selectedSvgColor);
+            });
+        });
+    </script>
+    
+    <style>
+        .testimonials-slideshow li {
+            opacity: 0;
+            transition: opacity 2ms ease-in-out;
+            position: absolute;
+            width: 100%;
+    
+        }
+        
+        .testimonials-slideshow li.active {
+            opacity: 1;
+            position: relative;
+        }    
+
+        @keyframes morph {
+            0% {
+                d: path("M362.22 106.11 C166.72 -122.64 -29.07 124.88 5.92 267.88 27.62 356.55 232.29 417.06 305.71 333.03 381.99 255.67 397.74 152.89 362.22 106.11");
+            }
+            25% {
+                d: path("m316.58,90.83C13.58-120.17-18.42,175.83,16.58,318.83c21.7,88.67,202.76,58.02,316,10,125-53,34.87-202.58-16-238Z");
+            }
+            50% {
+                d: path("m334.12,81.3C31.12-129.7-25.88,120.3,9.12,263.3c21.7,88.67,310.58,186.49,347,69,31-100,28.87-215.58-22-251Z");
+            }
+            75% {
+                d: path("m316.58,90.83C13.58-120.17-18.42,175.83,16.58,318.83c21.7,88.67,202.76,58.02,316,10,125-53,34.87-202.58-16-238Z");
+            }
+            100% {
+                d: path("M362.22 106.11 C166.72 -122.64 -29.07 124.88 5.92 267.88 27.62 356.55 232.29 417.06 305.71 333.03 381.99 255.67 397.74 152.89 362.22 106.11");
+            }
+        }
+        
+        @keyframes morph-mask {
+            0% {
+                d: path("M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1");
+            }
+            25% {
+                d: path("m58.29,44.07C27.07,87.33-29.12,184.7,18.28,249.54c47.4,64.84,77.19,92.34,146.82,89.52s116.82-33.01,133.79-47.56,91.85-107.92,40.32-195.07C295.08,21.78,253.59,7.21,243.31,2.71,221.04-4.57,89.52.8,58.29,44.07Z");
+            }
+            50% {
+                d: path("m191.86.06C107.98-4.12-59.9,229.36,21.86,307.42s106.37-11.44,154.86-9.81c91.65,3.09,100.26,94.22,150.27,59.39,5.93-4.4,76.28-84.46,14.71-214.14-24.52-54.49-49.38-102.45-75.74-119.87S223.53,1.91,191.86.06Z");
+            }
+            75% {
+                d: path("m58.29,44.07C27.07,87.33-29.12,184.7,18.28,249.54c47.4,64.84,77.19,92.34,146.82,89.52s116.82-33.01,133.79-47.56,91.85-107.92,40.32-195.07C295.08,21.78,253.59,7.21,243.31,2.71,221.04-4.57,89.52.8,58.29,44.07Z");
+            }
+            100% {
+                d: path("M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1");
+            }
+        }
+        
+        #animated-shape {
+            animation: morph 20s infinite alternate linear;
+        }
+        
+        #animated-mask {
+            animation: morph-mask 20s infinite alternate linear;
+        }
+
+
+        @keyframes blink {
+            0% {opacity: 1}
+            50% {opacity: 0.5}
+            100% {opacity: 1}
+        }
+          
+          @keyframes showUp {
+            0% {transform: translate3d(0,2em,0)}
+            100% {transform: translate3d(0,0,0)}
+          }
+          
+          @keyframes left1 {
+            0% {transform: translate3d(-4em,0.15em,0); width: 0.65em;}
+            50% {transform: translate3d(-1.65em,0.15em,0); width: 0.85em;}
+            100% {transform: translate3d(0em,0.15em,0); width: 0.65em;}
+          }
+          
+          @keyframes gotosite {
+            0% {transform: translate3d(0,0,0)}
+            100% {transform: translate3d(0,-100%,0)}
+          }
+          
+          @keyframes bounceWave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+          }
+          @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+          
+          .letter {
+            display: inline-block;
+            animation: bounceWave 0.4s ease-in-out forwards;
+            animation-delay: 0.2s;
+            font-weight: bold;
+          }
+          
+          /* Apply staggered delays */
+          .p-text1 .letter:nth-child(1) { animation-delay: 0.2s; }
+          .p-text1 .letter:nth-child(2) { animation-delay: 0.3s; }
+          .p-text1 .letter:nth-child(3) { animation-delay: 0.4s; }
+          .p-text1 .letter:nth-child(4) { animation-delay: 0.5s; }
+          .p-text1 .letter:nth-child(5) { animation-delay: 0.6s; }
+          .p-text1 .letter:nth-child(6) { animation-delay: 0.7s; }
+          
+          .p-text2 .letter:nth-child(1) { animation-delay: 0.8s; }
+          .p-text2 .letter:nth-child(2) { animation-delay: 0.9s; }
+          .p-text2 .letter:nth-child(3) { animation-delay: 1s; }
+          .p-text2 .letter:nth-child(4) { animation-delay: 1.1s; }
+          .p-text2 .letter:nth-child(5) { animation-delay: 1.2s; }
+          
+          .preloader {
+            z-index: 9999999999;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0; right: 0; bottom: 0;
+            transition: background-color none; /* Smooth transition */
+          }
+          
+          /* Dynamic background colors */
+          .bg-red { background-color: #E30611; }
+          .bg-blue { background-color: #3357ff; }
+          .bg-green { background-color: #33ff57; }
+          .bg-orange { background-color: #ff5733; }
+          .bg-pink { background-color: #ff33a6; }
+          
+          .preloader--text {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              overflow: hidden;
+              -webkit-transform: translate(-50%,-50%);
+              -ms-transform: translate(-50%,-50%);
+              transform: translate(-50%,-50%);
+              text-align: center;
+              font-size: 6em;
+              color: white;
+          }
+          
+          .text-writer {
+            width: 0.85em;
+            height: 0.15em;
+            background: rgba(255,255,255,1);
+            display: inline-block;
+            transform: translate3d(-4em,0.15em,0);
+            animation: blink 0.5s infinite, left1 1.6s cubic-bezier(0.55, 0.09, 0.16, 0.85) forwards;
+          }
+          
+          .p-text1, .p-text2 {
+            transform: translate3d(0,2em,0);
+            display: inline-block;
+          }
+          
+          .showUp {
+            animation: showUp 0.35s cubic-bezier(0.55, 0.09, 0.16, 0.85) forwards;
+            animation-delay: 0.4s;
+          }
+          
+          .showUp1 {
+            animation: showUp 0.35s cubic-bezier(0.55, 0.09, 0.16, 0.85) forwards;
+            animation-delay: 1.1s;
+          }
+          
+          .done {
+            animation: gotosite 0.6s cubic-bezier(0.55, 0.09, 0.16, 0.85) forwards;
+            animation-delay: 1.8s;
+          }
+        
+    </style>
+    
+
+        
+</head>
+<body class="bg-white text-black">
+    <main>
+       <div class="preloader done">
+  <h1 class="preloader--text">
+    <span class="p-text1 showUp">
+      <span class="letter">p</span>
+      <span class="letter">a</span>
+      <span class="letter">s</span>
+      <span class="letter">t</span>
+      <span class="letter">e</span>
+      <span class="letter">l</span>
+    </span>
+    <em class="playfair p-text2 showUp1">
+      <span class="letter">z</span>
+      <span class="letter">e</span>
+      <span class="letter">b</span>
+      <span class="letter">r</span>
+      <span class="letter">a</span>
+    </em>
+    <span class="text-writer left1"></span>
+  </h1> 
+</div>
+
+    
+
+<!-- Main Content -->
+
+
+        <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent p-6" id="navbar">
+            <div class="flex justify-between items-center px-10">
+                <!-- Menu with Hamburger Icon -->
+                <div class="flex items-center space-x-3">
+                    <a href="#target-section" class="lines relative block w-8 h-6">
+                        <span class="absolute left-1/2 top-0 w-8 h-1 bg-current transform -translate-x-1/2 rounded dynamic-color"></span>
+                        <span class="absolute left-1/2 top-1/2 w-8 h-1 bg-current transform -translate-x-1/2 -translate-y-1/2 rounded dynamic-color"></span>
+                        <span class="absolute left-1/2 bottom-0 w-8 h-1 bg-current transform -translate-x-1/2 rounded dynamic-color"></span>
+                    </a>
+                    
+                    <button class="text-white text-4xl font-extrabold tracking-wide">MENU</button>
+                </div>
+        
+                <!-- Logo -->
+                <h1 class="text-white text-6xl font-extrabold tracking-wide mt-10">
+                    Pastel<span class="dynamic-color">Zebra</span>
+                </h1>
+            </div>
+        </nav>
+        
+        
+        
+        
+  
+        
+        <div class="relative w-full h-screen overflow-hidden">
+            <!-- Background Video -->
+            <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted playsinline>
+              <source src="/vd_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+              <h1 id="hero-title" class="text-5xl md:text-7xl font-bold opacity-0 translate-y-10 transition-all duration-1000">
+                The Pastel <span class="dynamic-color">zebra</span>
+              </h1>
+              <p id="hero-subtitle" class="mt-4 text-lg md:text-3xl opacity-0 translate-y-10 transition-all duration-1000">
+                Creative growth starts here
+              </p>
+              <br><br><br><br>
+              <div class="flex justify-center gap-4">
+                <!-- View Work Button -->
+                <a href="#" class="px-6 py-3 text-white font-semibold rounded-full shadow-md border-2 border-transparent transition-all duration-300 dynamic-bg hover:bg-white dynamic-hover">
+                    View Work
+                </a>
+            
+                <!-- View Real Button -->
+                <a href="#" class="px-6 py-3 text-white font-semibold rounded-full shadow-md border-2 border-transparent transition-all duration-300 dynamic-bg hover:bg-white dynamic-hover">
+                    View Real
+                </a>
+            </div>
+            </div>
+          </div>
+          
+        
+        <!-- Title Grid -->
+        <section class="py-10 bg-white ">
+            <!-- Title Section -->
+            <div class="flex justify-center items-center text-gray-400 text-4xl font-medium space-x-6 flex-wrap py-6">
+                <a href="#" class="hover:text-cyan-500 transition duration-300 hover:bg-white dynamic-hover">Design</a>
+                <span class="text-cyan-500 text-3xl dynamic-color">|</span>
+                <a href="#" class="hover:text-cyan-500 transition duration-300 hover:bg-white dynamic-hover">Advertising</a>
+                <span class="text-cyan-500 text-3xl dynamic-color">|</span>
+                <a href="#" class="hover:text-cyan-500 transition duration-300 hover:bg-white dynamic-hover">Brand</a>
+                <span class="text-cyan-500 text-3xl dynamic-color">|</span>
+                <a href="#" class="hover:text-cyan-500 transition duration-300 hover:bg-white dynamic-hover">Digital</a>
+            </div>
+            
+            
+            
+        </section>
+
+        <!-- Image grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
+            <!-- Bottles Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="0">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg" alt="Bottles" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Bottles</span>
+                </div>
+            </div>
+        
+            <!-- Plants Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="1">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg" alt="Plants" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Plants</span>
+                </div>
+            </div>
+        
+            <!-- Gardens Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="2">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg" alt="Gardens" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Gardens</span>
+                </div>
+            </div>
+        
+            <!-- Flowers Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="3">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/adb/thumb_6327_1920_1080_0_0_crop.jpg" alt="Flowers" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Flowers</span>
+                </div>
+            </div>
+        
+            <!-- Nature Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="4">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg" alt="Nature" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Nature</span>
+                </div>
+            </div>
+        
+            <!-- Decor Category -->
+            <div class="relative group h-[500px] overflow-hidden" data-index="5">
+                <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg" alt="Decor" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="text-4xl font-bold dynamic-color">Decor</span>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <br>
+        
+        
+        
+        <!--blob image setup-->
+        <div class="testimonial-list bg-white py-10 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6">
+                <ul class="testimonials-slideshow relative">
+                    <li class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12 relative z-10">
+                        
+                        <!-- Animated SVG Image -->
+                        <div class="w-full md:w-1/3 relative flex justify-center">
+                            <!-- Background Shape -->
+                            <svg id="shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397.32 366.19" height="400" class="inset-0 w-full h-full z-0">
+                                <path id="animated-shape" class="shape" d="M362.22 106.11 C166.72 -122.64 -29.07 124.88 5.92 267.88 27.62 356.55 232.29 417.06 305.71 333.03 381.99 255.67 397.74 152.89 362.22 106.11" 
+                                    data-original="m392.48,132.83C312.65-115.07-32.52,129.83,2.48,272.83c21.7,88.67,135.76,109.02,249,61,125-53,160-142,141-201Z"></path>
+                            </svg>
+                        
+                            <!-- Masked Image -->
+                            <svg id="mask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367.33 366.21" class="absolute inset-0 w-full h-full z-10">
+                                <clipPath id="clip-path">
+                                    <path id="animated-mask" d="M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1"></path>
+                                </clipPath>
+                                <image clip-path="url(#clip-path)" width="100%" height="100%" xlink:href="https://pottingshed.com/themes/potting-shed/assets/images/misc/jim-gilligan.jpg" class="back-image"></image>
+                            </svg>
+                        </div>
+        
+                        <!-- Testimonial Text -->
+                        <div class="w-full md:w-1/2 space-y-4 text-center md:text-left">
+                            <h4 class="text-gray-400 uppercase tracking-widest text-sm font-semibold">Trusted by Industry Leaders</h4>
+                            <p class="text-gray-700 text-lg leading-relaxed">
+                                <span class="text-pink-400 text-2xl font-serif">"</span> We worked alongside Potting Shed to create an identity that embodies who we are, and why we do what we do. These projects have contributed to a more connected team who believe in our organisation at a deep level. When your people believe in what you do and take ownership over their culture and workplace, growth is the natural outcome. <span class="text-pink-400 text-2xl font-serif">"</span>
+                            </p>
+                            <p class="text-gray-600 font-semibold">Jim Gilligan - <span class="font-normal">MD Carey Group</span></p>
+                            <button class="px-6 py-3 text-white font-semibold rounded-full shadow-md border-2 border-transparent transition-all duration-300 dynamic-bg hover:bg-white dynamic-hover">
+                                View case study
+                            </button>
+                        </div>
+        
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12 relative z-10">
+                        
+                        <!-- Animated SVG Image -->
+                        <div class="w-full md:w-1/3 relative flex justify-center">
+                            <!-- Background Shape -->
+                            <svg id="shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397.32 366.19" height="400" class="inset-0 w-full h-full z-0">
+                                <path id="animated-shape" class="shape" d="M362.22 106.11 C166.72 -122.64 -29.07 124.88 5.92 267.88 27.62 356.55 232.29 417.06 305.71 333.03 381.99 255.67 397.74 152.89 362.22 106.11" 
+                                    data-original="m392.48,132.83C312.65-115.07-32.52,129.83,2.48,272.83c21.7,88.67,135.76,109.02,249,61,125-53,160-142,141-201Z"></path>
+                            </svg>
+                        
+                            <!-- Masked Image -->
+                            <svg id="mask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367.33 366.21" class="absolute inset-0 w-full h-full z-10">
+                                <clipPath id="clip-path">
+                                    <path id="animated-mask" d="M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1"></path>
+                                </clipPath>
+                                <image clip-path="url(#clip-path)" width="100%" height="100%" xlink:href="https://pottingshed.com/themes/potting-shed/assets/images/misc/jenny-winspear.jpg" class="back-image"></image>
+                            </svg>
+                        </div>
+        
+                        <!-- Testimonial Text -->
+                        <div class="w-full md:w-1/2 space-y-4 text-center md:text-left">
+                            <h4 class="text-gray-400 uppercase tracking-widest text-sm font-semibold">Trusted by Industry Leaders</h4>
+                            <p class="text-gray-700 text-lg leading-relaxed">
+                                <span class="text-pink-400 text-2xl font-serif">"</span> Being over a year into our start up journey, we still absolutely love what Ed and the team at Potting Shed created for us with respect to our brand. They took the time to understand the product and our purpose and created a clean, fun and fresh look which our clients comment on regularly. They then took the brand and product to the next level for us by creating our product video and website, and the storyboard and visual process that the team created really brought it to life. The outputs from Potting Shed are high-end and professional, and the team are also great fun to work with.<span class="text-pink-400 text-2xl font-serif">"</span>
+                            </p>
+                            <p class="text-gray-600 font-semibold">Jenny Winspear - <span class="font-normal">MD Carey Group</span></p>
+                            <button class="px-6 py-3 text-white font-semibold rounded-full shadow-md border-2 border-transparent transition-all duration-300 dynamic-bg hover:bg-white dynamic-hover">
+                                View case study
+                            </button>
+                        </div>
+        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Client Logo Section Here -->
+        <div class="client-logo-list w-full max-w-6xl mx-auto px-6 py-6">
+            <ul class="flex justify-center items-center gap-24 flex-wrap">
+                <li>
+                    <a href="https://pottingshed.com/clients/stryke-fit">
+                        <img class="w-32 h-auto filter grayscale opacity-75 hover:opacity-100 transition" 
+                             src="https://df93k41893ij1.cloudfront.net/uploads/public/609-244-b68-StrikeFit-609244b683f8c385551824-auto-80-crop-50-50.png"
+                             alt="Stryke Fit">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://pottingshed.com/clients/xlr">
+                        <img class="w-32 h-auto filter grayscale opacity-75 hover:opacity-100 transition" 
+                             src="https://df93k41893ij1.cloudfront.net/uploads/public/678-fc8-03a-XLR-Master-Logo-RGB-678fc803ac252567357939-auto-80-crop-50-50.png"
+                             alt="XLR">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://pottingshed.com/clients/gravity">
+                        <img class="w-32 h-auto filter grayscale opacity-75 hover:opacity-100 transition" 
+                             src="https://df93k41893ij1.cloudfront.net/uploads/public/674-d8f-fa9-Gavity-Master-Logo-RGB-674d8ffa95c99915718052-auto-80-crop-50-50.png"
+                             alt="Gravity">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://pottingshed.com/clients/ey">
+                        <img class="w-32 h-auto filter grayscale opacity-75 hover:opacity-100 transition" 
+                             src="https://df93k41893ij1.cloudfront.net/uploads/public/5ef-e17-cd4-ey-logo-5efe17cd4370c484259776-auto-80-crop-50-50.png"
+                             alt="EY">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://pottingshed.com/clients/dot-and-tom">
+                        <img class="w-32 h-auto filter grayscale opacity-75 hover:opacity-100 transition" 
+                             src="https://df93k41893ij1.cloudfront.net/uploads/public/5f2-7cd-d8b-Dot-and-Tom-favicon-01-5f27cdd8b36cb216142252-auto-80-crop-50-50.png"
+                             alt="Dot and Tom">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!--colabrative flex tag-->
+        <div id="dynamic-bg" class="flex h-screen/2">
+            <div class="w-1/2 flex flex-col justify-center items-center text-white p-10">
+                <h1 class="text-4xl font-bold text-center">We collaborate with like-minded organisations to transform active business into effective brands.</h1>
+                <div class="mt-6 flex space-x-4">
+                    <button class="border border-white px-6 py-2 rounded-full text-white hover:bg-white hover:text-lime-400 transition">Schedule a video call</button>
+                    <button class="border border-white px-6 py-2 rounded-full text-white hover:bg-white hover:text-lime-400 transition">Send us an email</button>
+                    <button class="border border-white px-6 py-2 rounded-full text-white hover:bg-white hover:text-lime-400 transition">Call the studio</button>
+                </div>
+            </div>
+            
+            <div class="w-1/2 h-full">
+                <img src="/ps-studio-entrance.png" alt="Office Image" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </main>
+    <footer class="bg-black text-white p-12">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between">
+            <!-- Left Section -->
+            <div class="md:w-1/3 space-y-6">
+                <h1 class="text-4xl font-bold text-white"><span class="text-gray-300">p</span>astel<span id="logo-highlight">zebra</span></h1>
+                <div class="flex items-center space-x-2">
+                    <input id="email-input" type="email" placeholder="Your email goes here" 
+                        class="p-3 w-full md:w-80 rounded-full bg-gray-100 outline-none text-white">
+                    <button id="subscribe-button" class="text-white p-3 px-6 rounded-full font-semibold hover:bg-white dynamic-hover">Subscribe</button>
+                </div>
+                <div class="flex justify-start space-x-6 text-white text-lg">
+                    <a href="#" class="hover:underline">Facebook</a>
+                    <a href="#" class="hover:underline">LinkedIn</a>
+                    <a href="#" class="hover:underline">Instagram</a>
+                    <a href="#" class="hover:underline">Pinterest</a>
+                    <a href="#" class="hover:underline">Behance</a>
+                </div>
+            </div>
+            
+            <!-- Right Section -->
+            <div class="hidden md:flex md:w-2/3 justify-end space-x-12">
+                <div>
+                    <h2 class="font-bold text-xl dynamic-color">Guernsey</h2>
+                    <p class="leading-relaxed">Trinity Square<br>St Peter Port<br>Guernsey<br>GY1 1LX</p>
+                    <p><a href="tel:01481727699" class="hover:underline">01481 727699</a></p>
+                    <p><a href="mailto:gsy@pottingshed.com" class="hover:underline">gsy@pottingshed.com</a></p>
+                    <p><a href="#" class="hover:underline">View map</a></p>
+                </div>
+                <div>
+                    <h2 class="font-bold text-xl dynamic-color">Jersey</h2>
+                    <p class="leading-relaxed">First Floor, 3 Mulcaster St<br>St Helier<br>Jersey<br>JE2 3NJ</p>
+                    <p><a href="tel:01534781658" class="hover:underline">01534 781658</a></p>
+                    <p><a href="mailto:jsy@pottingshed.com" class="hover:underline">jsy@pottingshed.com</a></p>
+                    <p><a href="#" class="hover:underline">View map</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Section -->
+        <div class="container mx-auto mt-12 flex flex-col md:flex-row justify-between items-center text-base text-white">
+            <div class="order-2 md:order-1 flex space-x-6 mt-6 md:mt-0">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+            </div>
+            <div class="order-1 md:order-2 bg-teal-500 p-3 rounded-full cursor-pointer flex items-center justify-center w-12 h-12">
+                <span class="text-white text-xl">&#x1F4AC;</span>
+            </div>
+        </div>
+    </footer>
+    <!-- Include GSAP and MorphSVG Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MorphSVGPlugin.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Register MorphSVGPlugin
+        gsap.registerPlugin(MorphSVGPlugin);
+
+        // Define the paths for morphing
+        const maskPaths = [
+            "M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1",
+            "M58.29 44.07 C27.07 87.33 -29.12 184.7 18.28 249.54 47.4 64.84 77.19 92.34 146.82 89.52 116.82 -33.01 133.79 -47.56 91.85 -107.92 40.32 -195.07 295.08 21.78 243.31 2.71 221.04 -4.57 89.52 0.8 58.29 44.07 Z",
+            "M191.86 0.06 C107.98 -4.12 -59.9 229.36 21.86 307.42 106.37 -11.44 154.86 -9.81 100.26 94.22 150.27 59.39 5.93 -4.4 76.28 -84.46 14.71 -214.14 -24.52 -54.49 -49.38 -102.45 -75.74 -119.87 223.53 1.91 191.86 0.06 Z"
+        ];
+
+        // Select the mask path
+        const maskPath = document.getElementById("mask-path");
+
+        let index = 0;
+
+        function animateMask() {
+            // Morph to the next path
+            gsap.to(maskPath, {
+                duration: 3, // Duration of each transition
+                ease: "power1.inOut", // Smooth easing
+                morphSVG: maskPaths[index], // Morph to the next path
+                onComplete: () => {
+                    // Update the index for the next path
+                    index = (index + 1) % maskPaths.length;
+                    // Restart the animation
+                    animateMask();
+                }
+            });
+        }
+
+        // Start the animation
+        animateMask();
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const testimonials = document.querySelectorAll(".testimonials-slideshow li");
+        let currentIndex = 0;
+    
+        function showNextTestimonial() {
+            // Hide the current testimonial
+            testimonials[currentIndex].classList.remove("active");
+    
+            // Move to the next testimonial (looping back if necessary)
+            currentIndex = (currentIndex + 1) % testimonials.length;
+    
+            // Show the next testimonial
+            testimonials[currentIndex].classList.add("active");
+        }
+    
+        // Initially show the first testimonial
+        testimonials[currentIndex].classList.add("active");
+    
+        // Set interval for automatic transition
+        setInterval(showNextTestimonial, 5000); // Change every 5 seconds
+    });
+</script>
+<script>
+    const grids = document.querySelectorAll(".group");
+    const imageSets = [
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ac7/thumb_6325_1920_1080_0_0_crop.jpg"],
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/665/thumb_6331_1920_1080_0_0_crop.jpg"],
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a19/thumb_6319_1920_1080_0_0_crop.jpg"],
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/adb/thumb_6327_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ad9/thumb_6326_1920_1080_0_0_crop.jpg"],
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg"],
+    ["https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg", 
+     "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg"]
+];
+
+    
+    grids.forEach((grid, index) => {
+        let img = grid.querySelector("img");
+        let images = imageSets[index];
+        let i = 0;
+        grid.addEventListener("mouseenter", () => {
+            const interval = setInterval(() => {
+                i = (i + 1) % images.length;
+                img.src = images[i];
+            }, 500);
+            grid.addEventListener("mouseleave", () => clearInterval(interval), { once: true });
+        });
+    });
+</script>
+<script>
+    // Wait for 5 seconds, then fade in the title
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("hero-title").classList.remove("opacity-0", "translate-y-10");
+      }, 2000); // 5-second delay
+
+      setTimeout(() => {
+        document.getElementById("hero-subtitle").classList.remove("opacity-0", "translate-y-10");
+      }, 3000); // 6-second delay
+    });
+    window.addEventListener("scroll", function () {
+        let navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("bg-white", "shadow-lg"); // Add white background & shadow on scroll
+            navbar.classList.remove("bg-transparent");
+        } else {
+            navbar.classList.add("bg-transparent");
+            navbar.classList.remove("bg-white", "shadow-lg");
+        }
+    });
+    function updateDynamicColor(color) {
+        document.querySelectorAll(".dynamic-color").forEach(el => {
+            el.style.color = color; // Apply to text elements
+        });
+    
+        document.querySelectorAll(".dynamic-color-icon span").forEach(el => {
+            el.style.backgroundColor = color; // Apply to icon bars
+        });
+    }
+    
+    function updateDynamicColor(color) {
+        document.querySelectorAll(".dynamic-color").forEach(el => {
+            el.style.color = color; // Apply to text elements
+        });
+    
+        document.querySelectorAll(".dynamic-color-icon span dynamic-color").forEach(el => {
+            el.style.backgroundColor = color; // Apply to icon bars
+        });
+    }
+    
+    // Example: Change to yellow
+    updateDynamicColor("dynamic-color");
+    
+  </script>
+
+</body>
+</html>
+
